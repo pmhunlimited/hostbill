@@ -30,8 +30,23 @@ switch ($page) {
     case 'admin_products':
         include BASE_PATH . '/app/controllers/admin_products_controller.php';
         break;
+    case 'admin_credits':
+        include BASE_PATH . '/app/controllers/admin_credits_controller.php';
+        break;
+    case 'admin_gateways':
+        include BASE_PATH . '/app/controllers/admin_gateways_controller.php';
+        break;
+    case 'admin_approvals':
+        include BASE_PATH . '/app/controllers/admin_approvals_controller.php';
+        break;
+    case 'admin_currencies':
+        include BASE_PATH . '/app/controllers/admin_currencies_controller.php';
+        break;
     case 'order':
         include BASE_PATH . '/app/controllers/order_controller.php';
+        break;
+    case 'add_funds':
+        include BASE_PATH . '/app/controllers/add_funds_controller.php';
         break;
     default:
         // For now, the home page will be the login page

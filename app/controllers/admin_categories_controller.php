@@ -4,7 +4,7 @@
 require_once BASE_PATH . '/app/db.php';
 
 // Ensure user is logged in and is an administrator
-if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 1) {
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
     header('Location: ?page=login');
     exit;
 }

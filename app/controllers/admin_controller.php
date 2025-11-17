@@ -1,8 +1,8 @@
 <?php
 // app/controllers/admin_controller.php
 
-// Ensure user is logged in and is an administrator (user_id 1 for now)
-if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 1) {
+// Ensure user is logged in and is an administrator
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
     header('Location: ?page=login');
     exit;
 }
@@ -21,6 +21,10 @@ include BASE_PATH . '/templates/header.php';
         <div class="my-4">
             <a href="?page=admin_categories" class="btn btn-primary">Manage Product Categories</a>
             <a href="?page=admin_products" class="btn btn-primary">Manage Products</a>
+            <a href="?page=admin_credits" class="btn btn-info">Manage Client Credits</a>
+            <a href="?page=admin_gateways" class="btn btn-secondary">Manage Payment Gateways</a>
+            <a href="?page=admin_approvals" class="btn btn-warning">Manual Approvals</a>
+            <a href="?page=admin_currencies" class="btn btn-dark">Manage Currencies</a>
         </div>
 
         <!-- Example Stat Cards -->

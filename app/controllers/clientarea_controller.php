@@ -20,6 +20,7 @@ include BASE_PATH . '/templates/header.php';
         <!-- Client Navigation -->
         <div class="my-4">
             <a href="?page=order" class="btn btn-success">Order New Service</a>
+            <a href="?page=add_funds" class="btn btn-primary">Add Funds</a>
         </div>
 
         <!-- Example Stat Cards -->

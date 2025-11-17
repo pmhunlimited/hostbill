@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error_message = 'Please enter both email and password.';
     } else {
         $conn = get_db_connection();
-        $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
+        $stmt = $conn->prepare("SELECT id, password, is_admin FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -24,8 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // In a real application, you MUST use password_hash() and password_verify().
             if ($password === $user['password']) {
                 $_SESSION['user_id'] = $user['id'];
-                // Redirect to the client area
-                header('Location: ?page=clientarea');
+                $_SESSION['is_admin'] = $user['is_admin'];
+
+                if ($user['is_admin']) {
+                    header('Location: ?page=admin');
+                } else {
+                    header('Location: ?page=clientarea');
+                }
                 exit;
             } else {
                 $error_message = 'Invalid email or password.';
