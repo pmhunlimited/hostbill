@@ -2,8 +2,6 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once '../vendor/autoload.php';
-
 function send_email($to, $subject, $body) {
     // Get mailer settings from database
     $db = new Database;

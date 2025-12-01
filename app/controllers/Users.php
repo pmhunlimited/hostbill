@@ -4,6 +4,10 @@ class Users extends Controller {
         $this->userModel = $this->model('User');
     }
 
+    public function index(){
+        redirect('users/login');
+    }
+
     public function register() {
         // Check for POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

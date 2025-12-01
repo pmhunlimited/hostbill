@@ -10,16 +10,10 @@
     protected $params = [];
 
     public function __construct(){
-      // Check if config exists, redirect to installer if not
-      if(!file_exists('../app/config/config.php')){
-        header('Location: ' . URLROOT . '/installer');
-        exit;
-      }
-
       $url = $this->getUrl();
 
       // Look in controllers for first value
-      if(isset($url[0]) && file_exists('../app/controllers/' . ucwords($url[0]). '.php')){
+      if(isset($url[0]) && file_exists(dirname(__DIR__) . '/controllers/' . ucwords($url[0]). '.php')){
         // If exists, set as controller
         $this->currentController = ucwords($url[0]);
         // Unset 0 Index
@@ -27,7 +21,7 @@
       }
 
       // Require the controller
-      require_once '../app/controllers/'. $this->currentController . '.php';
+      require_once dirname(__DIR__) . '/controllers/'. $this->currentController . '.php';
 
       // Instantiate controller class
       $this->currentController = new $this->currentController;
