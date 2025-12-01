@@ -1,6 +1,6 @@
 <?php
   // Load Config
-  $config_path = __DIR__ . '/config/config.php';
+  $config_path = dirname(__DIR__) . '/config/config.php';
 
   if(file_exists($config_path)){
     require_once $config_path;
