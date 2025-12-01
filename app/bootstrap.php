@@ -1,7 +1,9 @@
 <?php
   // Load Config
-  if(file_exists('../app/config/config.php')){
-    require_once '../app/config/config.php';
+  $config_path = __DIR__ . '/config/config.php';
+
+  if(file_exists($config_path)){
+    require_once $config_path;
   } else {
     // If config.php does not exist, redirect to the installer
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";

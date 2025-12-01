@@ -6,7 +6,7 @@ $db_pass = $_SESSION['db_pass'];
 $db_name = $_SESSION['db_name'];
 
 // Create the config file
-$config_file = "../config/config.php";
+$config_file = "../app/config/config.php";
 $config_data = "<?php
 // Database credentials
 define('DB_HOST', '$db_host');
