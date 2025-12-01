@@ -1,0 +1,55 @@
+/* Landing Page Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.hero-section {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1554497136-1c8a2d15294a?q=80&w=2070&auto=format&fit=crop');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.features-section, .about-section, .contact-section {
+    padding: 6rem 0;
+}
+
+.features-section {
+    background-color: #f8f9fa;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 2rem;
+}
+
+.feature-item i {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.about-section {
+    background-color: #fff;
+}
+
+.contact-section {
+    background-color: #f8f9fa;
+    text-align: center;
+}
