@@ -1,4 +1,7 @@
 <?php
+  // Require composer autoloader
+  require_once dirname(__DIR__) . '/vendor/autoload.php';
+
   // Load Config
   $config_path = dirname(__DIR__) . '/config/config.php';
 
