@@ -3,14 +3,26 @@
   if(file_exists('../app/config/config.php')){
     require_once '../app/config/config.php';
   } else {
-    // Define fallback constants if config doesn't exist
-    define('APPROOT', dirname(dirname(__FILE__)));
-    // Dynamically determine URL Root
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://www." : "http://www.";
+    // If config.php does not exist, redirect to the installer
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
     $host = $_SERVER['HTTP_HOST'];
-    $script_name = str_replace('/index.php', '', $_SERVER['SCRIPT_NAME']);
-    define('URLROOT', $protocol . $host . $script_name);
-    define('SITENAME', 'VTU Platform');
+    $script_path = dirname($_SERVER['SCRIPT_NAME']);
+
+    // Remove /public from path if present
+    if (substr($script_path, -7) === '/public') {
+        $base_path = substr($script_path, 0, -7);
+    } else {
+        $base_path = $script_path;
+    }
+
+    // If we are at the root, base_path might be '/' or '\'. We want an empty string for that.
+    if ($base_path === '/' || $base_path === '\\') {
+        $base_path = '';
+    }
+
+    $url_root = rtrim($protocol . $host . $base_path, '/');
+    header('Location: ' . $url_root . '/installer');
+    exit();
   }
 
   // Load Helpers
