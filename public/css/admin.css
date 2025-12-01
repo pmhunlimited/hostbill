@@ -1,0 +1,94 @@
+/* Admin Styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f6f9;
+}
+
+.admin-container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #343a40;
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.sidebar h3 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #495057;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.admin-dashboard .stats-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.admin-dashboard .card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    flex: 1;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.admin-dashboard .card:last-child {
+    margin-right: 0;
+}
+
+.admin-dashboard .card h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.admin-dashboard .card p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
