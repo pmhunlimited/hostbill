@@ -5,6 +5,9 @@
   // Load Config
   $config_path = dirname(__DIR__) . '/config/config.php';
 
+  // Set APPROOT
+  define('APPROOT', __DIR__);
+
   if(file_exists($config_path)){
     require_once $config_path;
   } else {

@@ -7,6 +7,26 @@ $db_name = $_SESSION['db_name'];
 
 // Create the config file
 $config_file = dirname(__DIR__) . '/config/config.php';
+
+// Calculate URLROOT
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$host = $_SERVER['HTTP_HOST'];
+$script_path = dirname($_SERVER['SCRIPT_NAME']);
+
+// Remove /installer from path if present
+if (substr($script_path, -10) === '/installer') {
+    $base_path = substr($script_path, 0, -10);
+} else {
+    $base_path = $script_path;
+}
+
+// If we are at the root, base_path might be '/' or '\'. We want an empty string for that.
+if ($base_path === '/' || $base_path === '\\') {
+    $base_path = '';
+}
+
+$url_root = rtrim($protocol . $host . $base_path, '/');
+
 $config_data = "<?php
 // Database credentials
 define('DB_HOST', '$db_host');
@@ -14,11 +34,8 @@ define('DB_USER', '$db_user');
 define('DB_PASS', '$db_pass');
 define('DB_NAME', '$db_name');
 
-// App Root
-define('APPROOT', dirname(dirname(__FILE__)));
-
 // URL Root
-define('URLROOT', ''); // This will be set dynamically
+define('URLROOT', '$url_root');
 
 // Site Name
 define('SITENAME', 'VTU');
