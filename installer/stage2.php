@@ -1,11 +1,11 @@
 <?php
 // Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get the form data
-    $db_host = $_POST['db_host'];
-    $db_user = $_POST['db_user'];
-    $db_pass = $_POST['db_pass'];
-    $db_name = $_POST['db_name'];
+    // Get the form data and trim whitespace
+    $db_host = trim($_POST['db_host']);
+    $db_user = trim($_POST['db_user']);
+    $db_pass = trim($_POST['db_pass']);
+    $db_name = trim($_POST['db_name']);
 
     // Create a new MySQLi object
     $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
