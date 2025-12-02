@@ -3,6 +3,12 @@
 
 session_start();
 
+// Define URLROOT
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$host = $_SERVER['HTTP_HOST'];
+$script_name = str_replace('/public/index.php', '', $_SERVER['SCRIPT_NAME']);
+define('URLROOT', $protocol . $host . $script_name);
+
 // Autoload dependencies
 require_once __DIR__ . '/../../vendor/autoload.php';
 
