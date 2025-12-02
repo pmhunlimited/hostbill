@@ -3,6 +3,26 @@
 
 session_start();
 
+// --- Dependency Check ---
+// Check if Composer's autoloader exists.
+// This is a critical dependency for the application to run.
+$autoloader_path = __DIR__ . '/../vendor/autoload.php';
+if (!file_exists($autoloader_path)) {
+    // If the autoloader is missing, the installer cannot proceed.
+    // Display a user-friendly error message with instructions.
+    $error_title = "Missing Critical Dependencies";
+    $error_message = "The required Composer dependencies are not installed. " .
+                     "Please run <code>composer install</code> from the project's root directory to install them. " .
+                     "The application cannot be installed until these dependencies are in place.";
+
+    // Include a simple error template to ensure the message is displayed clearly.
+    // This avoids continuing with a broken installation.
+    include 'templates/error_view.php';
+
+    // Stop the script to prevent further execution.
+    exit;
+}
+
 $step = isset($_GET['step']) ? $_GET['step'] : 1;
 $error = null;
 
