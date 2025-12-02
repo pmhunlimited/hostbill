@@ -1,0 +1,84 @@
+[02-Dec-2025 07:31:04 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 07:31:04 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 07:52:20 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 07:52:20 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 08:22:20 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 08:22:20 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 08:52:21 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 08:52:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 09:22:16 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 09:22:16 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 09:52:18 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 09:52:18 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 10:22:20 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 10:22:20 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 10:52:18 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 10:52:18 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 11:22:30 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 11:22:30 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 11:52:20 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 11:52:20 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 12:22:25 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 12:22:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 12:52:51 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 12:52:51 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 13:22:24 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 13:22:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 13:23:14 UTC] PHP Warning:  require_once(/home/hostbill/public_html/app/core/../../vendor/autoload.php): Failed to open stream: No such file or directory in /home/hostbill/public_html/app/core/bootstrap.php on line 7
+[02-Dec-2025 13:23:14 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/hostbill/public_html/app/core/../../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/hostbill/public_html/app/core/bootstrap.php:7
+Stack trace:
+#0 /home/hostbill/public_html/public/index.php(6): require_once()
+#1 {main}
+  thrown in /home/hostbill/public_html/app/core/bootstrap.php on line 7
