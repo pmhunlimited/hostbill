@@ -6,7 +6,11 @@ $db_pass = $_SESSION['db_pass'];
 $db_name = $_SESSION['db_name'];
 
 // Create the config file
-$config_file = dirname(__DIR__) . '/config/config.php';
+$config_dir = dirname(__DIR__) . '/config';
+if (!file_exists($config_dir)) {
+    mkdir($config_dir, 0755, true);
+}
+$config_file = $config_dir . '/config.php';
 
 // Calculate URLROOT
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
