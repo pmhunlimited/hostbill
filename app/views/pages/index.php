@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/landing.css">
+<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/landing.css">
 
 <header class="hero-section">
     <div class="hero-content">

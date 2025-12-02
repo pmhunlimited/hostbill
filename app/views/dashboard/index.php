@@ -1,4 +1,4 @@
-<?php require APPROOT . '/views/header.php'; ?>
+<?php require APPROOT . '/views/inc/header.php'; ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/dashboard.css">
 
@@ -104,4 +104,4 @@
         </a>
     </nav>
 </div>
-<?php require APPROOT . '/views/footer.php'; ?>
+<?php require APPROOT . '/views/inc/footer.php'; ?>
