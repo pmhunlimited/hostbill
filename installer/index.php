@@ -112,9 +112,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->close();
 
                 $settings = ['base_url' => $_SESSION['base_url'], 'system_email' => $_SESSION['system_email']];
-                $stmt = $mysqli->prepare("UPDATE settings SET value = ? WHERE setting = ?");
+
+                // --- Use a robust "upsert" query ---
+                // This ensures that the settings are created if they don't exist,
+                // and updated if they do. This is critical for a fresh installation.
+                $stmt = $mysqli->prepare("
+                    INSERT INTO settings (setting, value)
+                    VALUES (?, ?)
+                    ON DUPLICATE KEY UPDATE value = VALUES(value)
+                ");
+
                 foreach ($settings as $key => $value) {
-                    $stmt->bind_param('ss', $value, $key);
+                    $stmt->bind_param('ss', $key, $value);
                     $stmt->execute();
                 }
                 $stmt->close();
