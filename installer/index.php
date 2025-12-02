@@ -3,6 +3,52 @@
 
 session_start();
 
+// --- Dependency Check ---
+$autoloader_path = __DIR__ . '/../vendor/autoload.php';
+if (!file_exists($autoloader_path)) {
+    // --- Attempt to install dependencies automatically ---
+    $composer_output = '';
+    $install_error = false;
+
+    // Check if composer command exists
+    // Use `command -v` which is POSIX compliant and works on most Unix-like systems.
+    $composer_path = trim(shell_exec('command -v composer'));
+
+    if (empty($composer_path)) {
+        // If 'composer' is not found, try to find 'composer.phar' in the root directory.
+        $phar_path = dirname(__DIR__) . '/composer.phar';
+        if (file_exists($phar_path)) {
+            $composer_command = escapeshellcmd(PHP_BINARY) . ' ' . escapeshellarg($phar_path);
+        } else {
+             $error_title = "Composer Not Found";
+             $error_message = "The installer could not find the <code>composer</code> command or a <code>composer.phar</code> in the project root. " .
+                              "Please ensure Composer is installed and accessible, or download <code>composer.phar</code> to the project root. " .
+                              "<a href='https://getcomposer.org/' target='_blank'>Learn how to install Composer</a>.";
+             include 'templates/error_view.php';
+             exit;
+        }
+    } else {
+        $composer_command = escapeshellcmd($composer_path);
+    }
+
+    // Execute composer install
+    $command = 'cd ' . escapeshellarg(dirname(__DIR__)) . ' && ' . $composer_command . ' install --no-interaction --no-ansi --no-progress 2>&1';
+
+    // Increase execution time limit for this potentially long-running process.
+    set_time_limit(300); // 5 minutes
+
+    $composer_output = shell_exec($command);
+
+    // After running, check if the autoloader exists now
+    if (!file_exists($autoloader_path)) {
+        $install_error = true;
+    }
+
+    // Show a view with the output
+    include 'templates/dependency_install_result.php';
+    exit;
+}
+
 $step = isset($_GET['step']) ? $_GET['step'] : 1;
 $error = null;
 
@@ -66,9 +112,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->close();
 
                 $settings = ['base_url' => $_SESSION['base_url'], 'system_email' => $_SESSION['system_email']];
-                $stmt = $mysqli->prepare("UPDATE settings SET value = ? WHERE setting = ?");
+
+                // --- Use a robust "upsert" query ---
+                // This ensures that the settings are created if they don't exist,
+                // and updated if they do. This is critical for a fresh installation.
+                $stmt = $mysqli->prepare("
+                    INSERT INTO settings (setting, value)
+                    VALUES (?, ?)
+                    ON DUPLICATE KEY UPDATE value = VALUES(value)
+                ");
+
                 foreach ($settings as $key => $value) {
-                    $stmt->bind_param('ss', $value, $key);
+                    $stmt->bind_param('ss', $key, $value);
                     $stmt->execute();
                 }
                 $stmt->close();

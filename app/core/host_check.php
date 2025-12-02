@@ -7,7 +7,49 @@ function verify_host() {
     $current_host = $_SERVER['HTTP_HOST'];
 
     // 1. Get the base URL from settings (this is the main domain)
-    $base_url_setting = $db->query("SELECT value FROM settings WHERE setting = 'base_url'")->fetch_assoc();
+    $result = $db->query("SELECT value FROM settings WHERE setting = 'base_url'");
+    $base_url_setting = $result ? $result->fetch_assoc() : null;
+
+    // --- Add a protective check ---
+    // If the base_url setting is missing, the application is not configured correctly.
+    if (empty($base_url_setting) || empty($base_url_setting['value'])) {
+        // Halt and display a user-friendly error page.
+        // This prevents ugly PHP warnings and guides the user to a solution.
+        http_response_code(500); // Internal Server Error is appropriate
+
+        // Define the URL to the installer.
+        // This assumes a standard project structure where the installer is at the root.
+        $installer_url = '/installer/';
+
+        // Display a themed error page with clear instructions.
+        echo <<<HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Not Configured</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="installer-container">
+    <div class="installer-header text-center">
+        <h1>Configuration Error</h1>
+        <p class="lead">The application is not configured correctly. The 'base_url' setting is missing.</p>
+    </div>
+    <div class="alert alert-danger">
+        This is a critical error that prevents the application from running.
+    </div>
+    <div class="text-center mt-4">
+        <p>Please <a href="$installer_url">run the installer</a> to set up the application.</p>
+    </div>
+</div>
+</body>
+</html>
+HTML;
+        exit;
+    }
+
     $base_host = parse_url($base_url_setting['value'], PHP_URL_HOST);
 
     // 2. Check if the current host matches the main domain
