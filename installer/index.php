@@ -4,22 +4,48 @@
 session_start();
 
 // --- Dependency Check ---
-// Check if Composer's autoloader exists.
-// This is a critical dependency for the application to run.
 $autoloader_path = __DIR__ . '/../vendor/autoload.php';
 if (!file_exists($autoloader_path)) {
-    // If the autoloader is missing, the installer cannot proceed.
-    // Display a user-friendly error message with instructions.
-    $error_title = "Missing Critical Dependencies";
-    $error_message = "The required Composer dependencies are not installed. " .
-                     "Please run <code>composer install</code> from the project's root directory to install them. " .
-                     "The application cannot be installed until these dependencies are in place.";
+    // --- Attempt to install dependencies automatically ---
+    $composer_output = '';
+    $install_error = false;
 
-    // Include a simple error template to ensure the message is displayed clearly.
-    // This avoids continuing with a broken installation.
-    include 'templates/error_view.php';
+    // Check if composer command exists
+    // Use `command -v` which is POSIX compliant and works on most Unix-like systems.
+    $composer_path = trim(shell_exec('command -v composer'));
 
-    // Stop the script to prevent further execution.
+    if (empty($composer_path)) {
+        // If 'composer' is not found, try to find 'composer.phar' in the root directory.
+        $phar_path = dirname(__DIR__) . '/composer.phar';
+        if (file_exists($phar_path)) {
+            $composer_command = escapeshellcmd(PHP_BINARY) . ' ' . escapeshellarg($phar_path);
+        } else {
+             $error_title = "Composer Not Found";
+             $error_message = "The installer could not find the <code>composer</code> command or a <code>composer.phar</code> in the project root. " .
+                              "Please ensure Composer is installed and accessible, or download <code>composer.phar</code> to the project root. " .
+                              "<a href='https://getcomposer.org/' target='_blank'>Learn how to install Composer</a>.";
+             include 'templates/error_view.php';
+             exit;
+        }
+    } else {
+        $composer_command = escapeshellcmd($composer_path);
+    }
+
+    // Execute composer install
+    $command = 'cd ' . escapeshellarg(dirname(__DIR__)) . ' && ' . $composer_command . ' install --no-interaction --no-ansi --no-progress 2>&1';
+
+    // Increase execution time limit for this potentially long-running process.
+    set_time_limit(300); // 5 minutes
+
+    $composer_output = shell_exec($command);
+
+    // After running, check if the autoloader exists now
+    if (!file_exists($autoloader_path)) {
+        $install_error = true;
+    }
+
+    // Show a view with the output
+    include 'templates/dependency_install_result.php';
     exit;
 }
 
